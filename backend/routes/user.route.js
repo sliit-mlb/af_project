@@ -37,6 +37,58 @@ router.route('/get-user/:uName').get((req,res) => {
     })
 })
 
+router.route('/add-to-shopping-cart/:id/:item').put((req,res,next) => {
+    userSchema.update({"_id":req.params.id},{
+        "$push":{"shoppingCart":{"item":req.params.item}}
+    },(error,data)=> {
+        if(error) {
+            return next(error);
+        } else {
+            res.json(data);
+            console.log("Successfully added to shopping cart");
+        }
+    })
+})
+
+router.route('/delete-shopping-cart/:id/:item').put((req,res,next) => {
+    userSchema.update({"_id":req.params.id},{
+        "$pull":{"shoppingCart":{"item":req.params.item}}
+    },(error,data)=> {
+        if(error) {
+            return next(error);
+        } else {
+            res.json(data);
+            console.log("Successfully deleted");
+        }
+    })
+})
+
+router.route('/add-to-wishlist/:id/:item').put((req,res,next) => {
+    userSchema.update({"_id":req.params.id},{
+        "$push":{"wishList":{"item":req.params.item}}
+    },(error,data)=> {
+        if(error) {
+            return next(error);
+        } else {
+            res.json(data);
+            console.log("Successfully added to wishlist");
+        }
+    })
+})
+
+router.route('/delete-wishlist/:id/:item').put((req,res,next) => {
+    userSchema.update({"_id":req.params.id},{
+        "$pull":{"wishList":{"item":req.params.item}}
+    },(error,data)=> {
+        if(error) {
+            return next(error);
+        } else {
+            res.json(data);
+            console.log("Successfully deleted");
+        }
+    })
+})
+
 router.route('/get-user-by-id/:id').get((req,res) => {
     userSchema.find({"_id":req.params.id}, (error,data) => {
         if (error) {
