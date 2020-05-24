@@ -40,7 +40,7 @@ class Login extends Component {
 
         const {uName, pwd} = this.state;
 
-        axios.get('http://localhost:4000/users/get-user/' + uName + '/' + pwd)
+        axios.get('http://localhost:4000/users/get-unique-user/' + uName + '/' + pwd)
             .then(res => {
                 if(res.data[0].uName === uName) {
                     alert("Login Successful");

@@ -17,7 +17,7 @@ router.route('/create-user').post((req, res, next) => {
     })
 });
 
-router.route('/get-user/:uName/:pwd').get((req,res) => {
+router.route('/get-unique-user/:uName/:pwd').get((req,res) => {
     userSchema.find({"uName":req.params.uName,"pwd":req.params.pwd}, (error,data) => {
         if (error) {
             return next(error)
@@ -95,6 +95,18 @@ router.route('/get-user-by-id/:id').get((req,res) => {
             return next(error)
         } else {
             res.json(data);
+        }
+    })
+})
+
+router.route('/update-user/:id').put((req, res, next) => {
+    userSchema.findByIdAndUpdate(req.params.id, {
+        $set: req.body
+    }, (error, data) => {
+        if (error) {
+            return next(error);
+        } else {
+            res.json(data)
         }
     })
 })

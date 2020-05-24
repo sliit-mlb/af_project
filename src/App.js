@@ -21,6 +21,7 @@ import RatingAndComment from "./Components/RatingAndComment";
 import DeleteStoreManager from "./Components/Admin/DeleteStoreManager";
 import UpdateProduct from "./Components/StoreManager/UpdateProduct";
 import EditDiscount from "./Components/StoreManager/EditDiscount";
+import ChangePassword from "./Components/ChangePassword";
 
 class App extends Component{
     constructor() {
@@ -110,6 +111,7 @@ class App extends Component{
                         <Route path={'/wish_list'} render={props => <WishList {...props}/>}/>
                         <Route path={'/shopping_cart'} render={props => <ShoppingCart {...props}/>}/>
                         <Route path={'/rating_comment'} component={RatingAndComment}/>
+                        <Route path={'/change_password'} component={ChangePassword}/>
                     </Switch>
                 </div>
             </div>

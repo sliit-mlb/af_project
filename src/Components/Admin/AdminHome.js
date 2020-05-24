@@ -25,7 +25,7 @@ class AdminHome extends Component{
                 if(res.data.length===0){
                     const adminObject = {
                         uName:"admin",
-                        pwd:"asdf"
+                        pwd:"a9s5d1f2g"
                     }
 
                     axios.post('http://localhost:4000/admin/create-admin', adminObject)

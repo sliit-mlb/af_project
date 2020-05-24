@@ -2,7 +2,6 @@ let express = require('express');
 let mongoose = require('mongoose');
 let cors = require('cors');
 let bodyParser = require('body-parser');
-let dbConfig = require('./database/db');
 
 const path = require('path');
 const multer = require('multer');
@@ -17,23 +16,11 @@ const managerRoute = require('./routes/manager.route');
 const categoryRoute = require('./routes/category.route');
 const productRoute = require('./routes/product.route');
 
-// Connecting mongoDB Database
-/*mongoose.Promise = global.Promise;*/
-
-/*mongoose.connect(dbConfig.db, {
-    useNewUrlParser: true
-}).then(() => {
-        console.log('Database sucessfully connected!')
-    },
-    error => {
-        console.log('Could not connect to database : ' + error)
-    }
-);*/
-
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
+// Connecting mongoDB Database
 const mongoURI =
     "mongodb://localhost:27017/onlineShopping";
 

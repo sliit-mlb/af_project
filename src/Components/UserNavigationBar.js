@@ -29,6 +29,9 @@ class UserNavigationBar extends Component {
                                 <Link to={'/wish_list'}>
                                     <button className={'dropdown-item'}><i className={"fas fa-star"}></i> Wish List</button>
                                 </Link>
+                                <Link to={'/change_password'}>
+                                    <button className={'dropdown-item'}><i className="fas fa-user-edit"></i> Update User</button>
+                                </Link>
                                 <Link to={'/'}>
                                     <button className={'dropdown-item'} onClick={()=>{sessionStorage.removeItem('loggedUser');sessionStorage.removeItem('loggedUserName');window.location.reload();}}>
                                         <i className="fas fa-sign-out-alt"></i> Log out</button>

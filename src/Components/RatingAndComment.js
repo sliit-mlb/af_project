@@ -15,17 +15,18 @@ class RatingAndComment extends Component{
     componentDidMount() {
         if(JSON.parse(sessionStorage.getItem('loggedUser')) == null)
             this.props.history.push('/login');
+        else {
+            let items = JSON.parse(sessionStorage.getItem('purchaseItem'));
 
-        let items = JSON.parse(sessionStorage.getItem('purchaseItem'));
+            if (items.length === 0)
+                this.props.history.push('/shopping_cart');
 
-        if(items.length === 0)
-            this.props.history.push('/shopping_cart');
-
-        items.map((response) => {
-            axios.get('http://localhost:4000/product/get-unique-product/'+response)
-                .then(res => this.setState({purchaseItems:this.state.purchaseItems.concat(res.data)}))
-                .catch(error => console.log(error));
-        })
+            items.map((response) => {
+                axios.get('http://localhost:4000/product/get-unique-product/' + response)
+                    .then(res => this.setState({purchaseItems: this.state.purchaseItems.concat(res.data)}))
+                    .catch(error => console.log(error));
+            })
+        }
     }
 
     render() {
@@ -38,7 +39,10 @@ class RatingAndComment extends Component{
             <div className={'row'}>
                 <div className={'col'}>
                     <Link to={'/'}>
-                        <button className={'btn btn-danger my-3 form-control'}>Leave from feedback</button>
+                        <button className={'btn btn-danger my-3 form-control'} onClick={()=>{
+                            sessionStorage.removeItem('purchaseItem');
+                            this.props.history.push('/')
+                        }}>Leave from feedback</button>
                     </Link>
                 </div>
             </div>
