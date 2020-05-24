@@ -59,14 +59,21 @@ class AdminHome extends Component{
 
         const {uName,pwd} = this.state;
 
-        axios.get('http://localhost:4000/admin/get-admin/'+uName+'/'+pwd)
-            .then(res => {
-                if((res.data[0].uName === uName) && (res.data[0].pwd === pwd)){
-                    sessionStorage.setItem('loggedAdmin',JSON.stringify(res.data[0]._id));
-                    this.props.history.push('/admin/add_store_manager');
-                }
-            })
-            .catch(error => console.log(error))
+        if(uName===""||pwd===""){
+            alert("All fields are required")
+        } else{
+            axios.get('http://localhost:4000/admin/get-admin/'+uName+'/'+pwd)
+                .then(res => {
+                    if((res.data[0].uName === uName) && (res.data[0].pwd === pwd)){
+                        sessionStorage.setItem('loggedAdmin',JSON.stringify(res.data[0]._id));
+                        this.props.history.push('/admin/add_store_manager');
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                    alert("Username or password is wrong")
+                })
+        }
     }
 
     render() {

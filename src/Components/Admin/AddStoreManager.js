@@ -50,20 +50,37 @@ class AddStoreManager extends Component{
     onSubmit(e){
         e.preventDefault();
 
-        const managerObject = {
-            name:this.state.name,
-            uName:this.state.uName,
-            email:this.state.email,
-            pwd:this.state.pwd
+        const {name,uName,email,pwd} = this.state;
+
+        if(name===""||uName===""||email===""||pwd===""){
+            alert("All fields are required");
+        }else if(pwd.length<8||uName.length<8){
+            alert("Username & Password minimum characters 8")
+        }else{
+            const {uName} = this.state;
+
+            axios.get('http://localhost:4000/store-manager/get-manager/' + uName)
+                .then(res => {
+                    if(res.data[0].uName === uName) {
+                        alert("Username already used")
+                    }
+                })
+                .catch(()=>{
+                    const managerObject = {
+                        name:this.state.name,
+                        uName:this.state.uName,
+                        email:this.state.email,
+                        pwd:this.state.pwd
+                    }
+
+                    axios.post('http://localhost:4000/store-manager/create-store-manager',managerObject)
+                        .then(res => console.log(res.data));
+
+                    alert('Store Manager added successful');
+
+                    this.setState({name:'',uName:'',email:'',pwd:''})
+                })
         }
-
-        axios.post('http://localhost:4000/store-manager/create-store-manager',managerObject)
-            .then(res => console.log(res.data));
-
-        alert('Store Manager added successful');
-
-        this.setState({name:'',uName:'',email:'',pwd:''})
-
     }
 
     render() {

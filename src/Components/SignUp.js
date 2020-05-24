@@ -74,7 +74,7 @@ export default class SignUp extends Component {
             axios.get('http://localhost:4000/users/get-user/' + uName)
                 .then(res => {
                     if(res.data[0].uName === uName) {
-                        console.log("Username already used")
+                        alert("Username already used")
                     }
                 })
                 .catch(() => {

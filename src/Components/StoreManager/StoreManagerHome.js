@@ -44,14 +44,21 @@ class StoreManagerHome extends Component{
 
         const {uName,pwd} = this.state;
 
-        axios.get('http://localhost:4000/store-manager/get-store-manager/'+uName+'/'+pwd)
-            .then(res => {
-                if((res.data[0].uName === uName) && (res.data[0].pwd === pwd)){
-                    sessionStorage.setItem('loggedStoreManager',JSON.stringify(res.data[0]._id))
-                    this.props.history.push('/store_manager/add_product');
-                }
-            })
-            .catch(error => console.log(error))
+        if(uName===""||pwd===""){
+            alert("All fields are required")
+        } else {
+            axios.get('http://localhost:4000/store-manager/get-store-manager/' + uName + '/' + pwd)
+                .then(res => {
+                    if ((res.data[0].uName === uName) && (res.data[0].pwd === pwd)) {
+                        sessionStorage.setItem('loggedStoreManager', JSON.stringify(res.data[0]._id))
+                        this.props.history.push('/store_manager/add_product');
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                    alert("Username or password is wrong")
+                })
+        }
     }
 
     render() {

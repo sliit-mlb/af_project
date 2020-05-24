@@ -46,4 +46,14 @@ router.route('/delete-store-manager/:id').delete((req, res, next) => {
     })
 })
 
+router.route('/get-manager/:uName').get((req,res) => {
+    managerSchema.find({"uName":req.params.uName}, (error,data) => {
+        if (error) {
+            return next(error)
+        } else {
+            res.json(data);
+        }
+    })
+})
+
 module.exports = router;

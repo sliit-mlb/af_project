@@ -10,17 +10,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70acac8f-8cf6-43ee-864f-d7b326410355" name="Default Changelist" comment="User Level Implement">
-      <change afterPath="$PROJECT_DIR$/src/Components/ChangePassword.js" afterDir="false" />
+    <list default="true" id="70acac8f-8cf6-43ee-864f-d7b326410355" name="Default Changelist" comment="Change password class implemented">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/db.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/user.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/user.route.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/manager.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/manager.route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Admin/AddStoreManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Admin/AddStoreManager.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Admin/AdminHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Admin/AdminHome.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/RatingAndComment.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/RatingAndComment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/UserNavigationBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/UserNavigationBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/SignUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/StoreManager/StoreManagerHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/StoreManager/StoreManagerHome.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +70,8 @@
       <workItem from="1590241404279" duration="5466000" />
       <workItem from="1590301361961" duration="2227000" />
       <workItem from="1590305520540" duration="11000" />
-      <workItem from="1590321473624" duration="7070000" />
+      <workItem from="1590321473624" duration="7791000" />
+      <workItem from="1590334945071" duration="1244000" />
     </task>
     <task id="LOCAL-00001" summary="User Level Implement">
       <created>1590245384417</created>
@@ -82,7 +80,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590245384417</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Change password class implemented">
+      <created>1590333636591</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1590333636591</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -102,13 +107,14 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="User Level Implement" />
-    <option name="LAST_COMMIT_MESSAGE" value="User Level Implement" />
+    <MESSAGE value="Change password class implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change password class implemented" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="552" y="156" key="Vcs.Push.Dialog.v2" timestamp="1590245430887">
+    <state x="552" y="156" key="Vcs.Push.Dialog.v2" timestamp="1590333648628">
       <screen x="0" y="0" width="1920" height="874" />
     </state>
-    <state x="552" y="156" key="Vcs.Push.Dialog.v2/0.0.1920.874@0.0.1920.874" timestamp="1590245430887" />
+    <state x="552" y="156" key="Vcs.Push.Dialog.v2/0.0.1920.874@0.0.1920.874" timestamp="1590333648628" />
     <state x="769" y="350" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1590301928947">
       <screen x="0" y="0" width="1920" height="874" />
     </state>

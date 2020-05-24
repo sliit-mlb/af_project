@@ -40,22 +40,24 @@ class Login extends Component {
 
         const {uName, pwd} = this.state;
 
-        axios.get('http://localhost:4000/users/get-unique-user/' + uName + '/' + pwd)
-            .then(res => {
-                if(res.data[0].uName === uName) {
-                    alert("Login Successful");
-                    sessionStorage.setItem('loggedUser',JSON.stringify(res.data[0]._id));
-                    sessionStorage.setItem('loggedUserName',JSON.stringify(res.data[0].fName+" "+res.data[0].lName));
-                    this.props.history.push('/');
-                    window.location.reload();
-                }
-                else {
-                    console.log("Login failed")
-                }
-            })
-            .catch((error) => {
-                console.log(error);
-            })
+        if(uName===""||pwd===""){
+            alert("All fields are required")
+        } else {
+            axios.get('http://localhost:4000/users/get-unique-user/' + uName + '/' + pwd)
+                .then(res => {
+                    if(res.data[0].uName === uName) {
+                        alert("Login Successful");
+                        sessionStorage.setItem('loggedUser',JSON.stringify(res.data[0]._id));
+                        sessionStorage.setItem('loggedUserName',JSON.stringify(res.data[0].fName+" "+res.data[0].lName));
+                        this.props.history.push('/');
+                        window.location.reload();
+                    }
+                })
+                .catch((error) => {
+                    console.log(error);
+                    alert("Username or password wrong");
+                })
+        }
     }
 
 
